@@ -1,0 +1,59 @@
+<div class="mat-elevation-z8">
+  <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onPageChange($event)"
+    aria-label="Select page"
+    class="pagination"
+  >
+  </mat-paginator>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.id">{{element.id}}</div>
+        <div *ngIf="!element.id">
+          <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blend_name">
+      <th mat-header-cell *matHeaderCellDef>Blend Name</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.blend_name">{{element.blend_name}}</div>
+        <div *ngIf="!element.blend_name">
+          <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="intensifier">
+      <th mat-header-cell *matHeaderCellDef>Intensifier</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.intensifier">{{element.intensifier}}</div>
+        <div *ngIf="!element.intensifier">
+          <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="origin">
+      <th mat-header-cell *matHeaderCellDef>Origin</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="element.origin">{{element.origin}}</div>
+        <div *ngIf="!element.origin">
+          <ngx-skeleton-loader count="1"></ngx-skeleton-loader>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      (click)="handleClick(row)"
+      *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+</div>

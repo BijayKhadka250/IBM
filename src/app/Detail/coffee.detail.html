@@ -1,0 +1,20 @@
+<mat-card class="coffee-detail">
+  <div>
+    <button
+      mat-icon-button
+      class="back-icon"
+      (click)="backButtonHandler()"
+      aria-label="Example icon-button with back icon"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h4 class="heading-coffee">"{{coffeeDetail['blend_name']}}" Details</h4>
+  </div>
+
+  <div *ngFor="let property of coffeeDetail | keyvalue">
+    <mat-card class="each-property"
+      ><span style="color: #808080">{{property.key}}:</span>
+      {{property.value}}</mat-card
+    >
+  </div>
+</mat-card>
